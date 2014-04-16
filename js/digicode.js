@@ -43,7 +43,7 @@ iPadDigit.prototype.createTimer = function(resetTimer) {
 };
 
 iPadDigit.prototype.sendData = function() {
-    var url = this.api + '?' + 'digits=' + this.inputs.join();
+    var url = this.api + '/' + this.inputs.join('');
     $.get(url, function(response) {
       console.log(response);
     });
