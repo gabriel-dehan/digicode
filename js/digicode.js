@@ -1,5 +1,5 @@
 iPadDigit = (function(selector, api, delay, eventType) {
-    this.selector = $(selector);
+    this.selector = $(selector).not('.no-action');
     this.api      = api;
     this.event    = eventType;
 

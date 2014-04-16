@@ -1,14 +1,15 @@
 #digicode {
     width: 515px;
-    margin: 8% auto 0 auto;
+    margin: 2.2% auto 0 auto;
 }
 
 #digicode ul {
     list-style: none;
 }
 
-#digicode .btn-group {
-
+#digicode .no-action:hover {
+    background: #464545;
+    cursor: default;
 }
 
 #digicode .btn-xlg {
