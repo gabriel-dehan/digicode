@@ -1,10 +1,50 @@
+body {
+  background: black url('../img/backgrounds/green.png') no-repeat;
+  background-position: center center;
+
+}
+
 #digicode {
     width: 515px;
-    margin: 2.2% auto 0 auto;
+    margin: 4% auto 0 auto;
+
+    font-family: 'HelveticaNeue-UltraLight', 'HelveticaNeue-Light', 'HelveticaNeue', 'Helvetica', 'Arial', sans-serif;
+}
+
+#digicode h1 {
+  font-family: inherit;
+  text-align: center;
+  font-size: 1.9em;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+
+#digicode .password {
+  margin: 25px 0 60px 48px;
 }
 
 #digicode ul {
     list-style: none;
+}
+
+#digicode .password li {
+  display: inline-block;
+  margin: 0 15px;
+
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  height: 23px;
+  width: 23px;
+  -moz-border-radius:75px;
+  -webkit-border-radius: 75px;
+}
+
+#digicode .password li.filled {
+  background-color: rgba(255, 255, 255, 0.85);
+  border: none;
+}
+
+#digicode .code-panel {
+  margin-left: 13px;
 }
 
 #digicode .no-action:hover {
@@ -12,13 +52,54 @@
     cursor: default;
 }
 
+#digicode .ipad-row {
+  margin: 35px 5px;
+
+  font-size: 3.4em;
+}
+
+#digicode .ipad-row .key-lg {
+  width: 105px;
+}
+
+#digicode .ipad-row .simple-key {
+  cursor: pointer;
+
+  margin-left: 18px;
+  display: inline-block;
+  font-size: 0.6em;
+}
+
+#digicode .ipad-row .key {
+  cursor: pointer;
+
+  display: inline-block;
+  margin: 0 12px;
+  padding-top: 10px;
+
+  border: 3px solid rgba(255, 255, 255, 0.45);
+  height: 100px;
+  width: 100px;
+  -moz-border-radius:75px;
+  -webkit-border-radius: 75px;
+
+
+  text-align: center;
+}
+
+#digicode .ipad-row .key:hover {
+  color: #ddc16b;
+}
+
+/* Old style */
+
 #digicode .btn-xlg {
     font-size: 3.4em;
     padding: 0.8em 1.2em;
     border: 1px solid gray;
 }
 
-#digicode .head-row .btn {
+#digicode .head-row .btn, #digicode .no-borders .btn {
     border-bottom: 0;
 }
 
@@ -47,4 +128,8 @@
 
 #digicode .no-borders .btn {
     border-radius: 0;
+}
+
+#digicode .btn.delete {
+  padding: 0.8em 1.12em;
 }

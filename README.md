@@ -5,6 +5,9 @@ A little `Zepto/jQuery` plugin to create an iPad or Smartphone digicode in a Web
 
 ## Features
 
+- iPad passcode design
+
+- Displays a progress as keys are pressed
 - Displays a digicode
 - Handles tap/click events on numbers
 - When 6 digits are input it sends it's data to an API.
@@ -18,9 +21,10 @@ A little `Zepto/jQuery` plugin to create an iPad or Smartphone digicode in a Web
 ```javascript
 $(function() {
     $("#digicode li").digicode({
-        api: 'http://www.google.com',
+        api: 'yourapiendpoint',
         resetDelay: 10,
-        eventType: 'tap'
+        eventType: 'click tap',
+        inputDisplay: '#digicode .password li' // If you want the password to display
     });
 });
 ```

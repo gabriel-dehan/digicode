@@ -1,4 +1,4 @@
-iPadDigit = (function(selector, api, delay, eventType) {
+iPadDigit = (function(selector, api, delay, eventType, inputDisplay) {
     this.selector = $(selector).not('.no-action');
     this.api      = api;
     this.event    = eventType;
@@ -7,6 +7,8 @@ iPadDigit = (function(selector, api, delay, eventType) {
 
     this.timer    = null;
     this.delay    = delay;
+
+    this.inputDisplay = inputDisplay
 });
 
 iPadDigit.prototype.handleInputs = function() {
@@ -15,19 +17,44 @@ iPadDigit.prototype.handleInputs = function() {
     this.selector.on(this.event, function() {
         var value = $(this).text();
 
-        self.inputs.push(value);
-        self.createTimer();
+        if (value === 'Cancel') {
+            self.resetInput();
+        } else {
+            self.inputs.push(value);
+            self.displayInputs();
 
-        if (self.inputs.length == 6) {
-          self.sendData();
-          self.resetInput();
+            self.createTimer();
+
+            if (self.inputs.length == 6) {
+                self.sendData();
+                setTimeout(function() {
+                    self.resetInput();
+                }, 500);
+            }
         }
     });
 };
 
 iPadDigit.prototype.resetInput = function() {
     this.inputs = [];
+    this.displayInputs();
     clearInterval(this.timer);
+};
+
+iPadDigit.prototype.displayInputs = function() {
+    if (this.inputDisplay !== false) {
+        var self     = this,
+            displays = $(self.inputDisplay)
+
+        displays.removeClass('filled');
+/*        $.each(displays, function(_, e) {
+            $(e).removeClass
+        });*/
+
+        $.each(this.inputs, function(i, e) {
+            displays.eq(i).addClass('filled')
+        });
+    }
 };
 
 iPadDigit.prototype.createTimer = function(resetTimer) {
@@ -55,8 +82,9 @@ iPadDigit.prototype.sendData = function() {
             api   = opts.api || '/';
             delay = opts.resetDelay * 1000 || 10000;
             event = opts.eventType || 'tap';
+            inputDisplay = opts.inputDisplay || false;
 
-            digi  = new iPadDigit(this, api, delay, event);
+            digi  = new iPadDigit(this, api, delay, event, inputDisplay);
             digi.handleInputs();
         }
     })

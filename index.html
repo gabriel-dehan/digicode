@@ -10,39 +10,52 @@
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-      <div id="digicode">
-        <ul class="btn-toolbar">
-          <div class="btn-group head-row">
-            <li class="btn btn-default btn-xlg">1</li>
-            <li class="btn btn-default btn-xlg">2</li>
-            <li class="btn btn-default btn-xlg">3</li>
-          </div>
-          <div class="btn-group no-borders">
-            <li class="btn btn-default btn-xlg">4</li>
-            <li class="btn btn-default btn-xlg">5</li>
-            <li class="btn btn-default btn-xlg">6</li>
-          </div>
-          <div class="btn-group no-borders">
-            <li class="btn btn-default btn-xlg">7</li>
-            <li class="btn btn-default btn-xlg">8</li>
-            <li class="btn btn-default btn-xlg">9</li>
-          </div>
-          <div class="btn-group foot-row">
-            <li class="no-action btn btn-default btn-xlg">&nbsp;&nbsp;&nbsp;</li>
-            <li class="btn btn-default btn-xlg">0</li>
-            <li class="no-action btn btn-default btn-xlg">&nbsp;&nbsp;&nbsp;</li>
-          </div>
-        </ul>
+      <div class="masterkey-app">
+        <div id="digicode">
+          <h1>Enter passcode</h1>
+          <ul class="password">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+
+          <ul class="code-panel">
+            <div class="ipad-row ipad-head-row">
+              <li class="key">1</li>
+              <li class="key">2</li>
+              <li class="key">3</li>
+            </div>
+            <div class="ipad-row">
+              <li class="key">4</li>
+              <li class="key">5</li>
+              <li class="key">6</li>
+            </div>
+            <div class="ipad-row">
+              <li class="key">7</li>
+              <li class="key">8</li>
+              <li class="key">9</li>
+            </div>
+            <div class="ipad-row ipad-foot-row">
+              <li class="no-action simple-key key-lg">&nbsp;</li>
+              <li class="key">0</li>
+              <li class="simple-key delete text-default">Cancel</li>
+            </div>
+          </ul>
+        </div>
       </div>
 
       <script src="js/zepto.min.js" type="text/javascript"></script>
       <script src="js/digicode.js" type="text/javascript"></script>
       <script type="text/javascript">
         $(function() {
-            $("#digicode li").digicode({
+            $("#digicode .code-panel li").digicode({
                 api: 'http://www.google.com',
                 resetDelay: 10,
-                eventType: 'click tap'
+                eventType: 'click tap',
+                inputDisplay: '#digicode .password li'
             });
         });
       </script>
